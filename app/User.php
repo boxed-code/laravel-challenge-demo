@@ -2,13 +2,15 @@
 
 namespace App;
 
+use BoxedCode\Laravel\Auth\Challenge\Challengeable;
+use BoxedCode\Laravel\Auth\Challenge\Contracts\Challengeable as ChallengeableContract;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements ChallengeableContract
 {
-    use Notifiable;
+    use Notifiable, Challengeable;
 
     /**
      * The attributes that are mass assignable.
